@@ -1,6 +1,9 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import style from  '../styles/Home.module.css'
+import image from  '../assets/Solana_logo.png'
+import Image from 'next/image'
+
 
 export default function Home() {
 
@@ -27,7 +30,7 @@ export default function Home() {
         <h2 className= {style.heading2}>Watchlist</h2>
       
         <div className={style.cover}>
-          <p>Currency</p>
+          <p className={style.first}>Currency</p>
           <p>Last</p>
           <p>24h%</p>
           <p>7d%</p>
@@ -37,19 +40,22 @@ export default function Home() {
           <div key={index}  >
               <div className={[style.contents]}>
               
-                <div className= {style.symbol}>{item.symbol.replace('USDT', '')}</div>
+                <div className={style.flex}>
+                  <Image src={image} />
+                  <p className= {style.symbol}>{item.symbol.replace('USDT', '')}</p>
+
+                </div>                
                 
-                
-                <div>{ Math.round(item.lastPrice * 100) / 100 }</div>
+                <p>{ Math.round(item.lastPrice * 100) / 100 }</p>
               
               
-                <div style={{ color: item.priceChangePercent.includes('-') ? 'red' : 'green' }}>{ Math.round(item.priceChangePercent * 100) / 100  }%</div>
+                <p style={{ color: item.priceChangePercent.includes('-') ? '#FF492D' : '#61BF1E' }}>{ Math.round(item.priceChangePercent * 100) / 100  }%</p>
                 
                 
-                <div>{item.price}</div>
+                <p>16%</p>
               
                 
-                <div>{ Math.round(item.volume * 100) / 100 }</div>
+                <p>{ Math.round(item.volume * 100) / 100 }</p>
               
               </div>
           </div>
