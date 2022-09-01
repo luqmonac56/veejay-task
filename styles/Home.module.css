@@ -32,7 +32,9 @@
   padding-bottom: .5rem;
   padding-top: .5rem;
   color: rgba(58, 53, 53, 0.726);
-  border-bottom: 1.5px solid rgba(0, 0, 0, 0.568);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.123);
+  font-weight: 600;
+
 }
 
 .heading2{

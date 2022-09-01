@@ -8,7 +8,7 @@ export default function Home() {
 
   const getCoins = async () => {
     try {
-      const res = await axios.get('https://api.binance.com/api/v3/ticker/24hr?symbols=["BTCUSDT","BNBUSDT"]')
+      const res = await axios.get('https://api.binance.com/api/v3/ticker/24hr?symbols=["BTCUSDT","ETHUSDT","USDCUSDT","BNBUSDT","BUSDUSDT","XRPUSDT","ADAUSDT","SOLUSDT","DOGEUSDT","DOTUSDT"]')
       setCoin(res.data)
       
     } catch (error) {
@@ -43,7 +43,7 @@ export default function Home() {
                 <div>{ Math.round(item.lastPrice * 100) / 100 }</div>
               
               
-                <div>{ Math.round(item.priceChangePercent * 100) / 100  }%</div>
+                <div style={{ color: item.priceChangePercent.includes('-') ? 'red' : 'green' }}>{ Math.round(item.priceChangePercent * 100) / 100  }%</div>
                 
                 
                 <div>{item.price}</div>
